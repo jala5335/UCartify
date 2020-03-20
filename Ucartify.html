@@ -1,30 +1,78 @@
 <!doctype html>
 <html lang="en">
   <head>
-  	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  	<nav class="navbar navbar-expand-sm bg-dark justify-content-center">
-        <a class="navbar-brand" href="home.html">
-        </a>
-		<!-- Links -->
-		<ul class="navbar-nav">
-		    <li class="nav-item">
-		       <a class="nav-link" href="">Home</a>
-		    </li>
-		      <li class="nav-item">
-		      <a class="nav-link" href="">Login</a>
-		     </li>
-		     <li class="nav-item">
-		       <a class="nav-link" href="">Sign Up</a>
-		    </li>
-		</ul>
-	</nav>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		<link rel="stylesheet" type="text/css" href="Login.css">
+		<script type="text/javascript" src="./Login.js"></script>
+
+		<title>Account</title>
+
+		<nav class = "navbar navbar-expand-sm bg-dark">
+
+			<a class = "navbar-brand" href = "Ucartify.html"></a>
+
+			<ul class = "navbar-nav">
+
+				<div class = "nav-item">
+					<a class = "nav-link" href = "Ucartify.html">Home</a>
+				</div>
+
+        <div class = "nav-item">
+					<a class = "nav-link" href = "AccountInfo.html">Account Info</a>
+				</div>
+
+			</ul>
+
+      <ul class="nav navbar-nav ml-auto"> <!-- Right Side navbar -->
+
+				<div class = "nav-item">
+        	<a class = "nav-link" href="#myLoginModal" data-toggle="modal" onclick="openModal()">Login</a>
+				</div>
+
+      </ul>
+
+		</nav>
+
+		<!-- Login Modal (Nate) -->
+		<div id="myLoginModal" class="modal fade">
+			<div class="modal-dialog modal-login">
+				<div class="modal-content">
+					<div class="modal-header">
+						<div class="avatar">
+							<img src="https://www.tutorialrepublic.com/examples/images/avatar.png" alt="Avatar">
+						</div>
+						<h4 class="modal-title">Login to UCartify</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="form-group">
+						<input id="username" type="text" class="form-control" name="Username" placeholder="Username"
+							required="required">
+					</div>
+					<div class="form-group">
+						<input id="password" type="password" class="form-control" name="Password" placeholder="Password"
+							required="required">
+					</div>
+					<div class="form-group">
+						<button id="my_submit_button" class="btn btn-primary btn-block login-btn" onClick="onClickFunction()">Login</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
   	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    UCartify
   </head>
   <body>
+
+    <div class="jumbotron jumbotron-fluid">
+  		<div class="container">
+  			<h1 class="text-center">Welcome to UCartify!</h1>
+  		</div>
+  	</div>
 
   </body>
 </html>
