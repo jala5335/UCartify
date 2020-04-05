@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 
 <html lang = "en">
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="Login.css">
+	<script type="text/javascript" src="./Login.js"></script>
 
 	<head>
-
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-		<link rel="stylesheet" type="text/css" href="Login.css">
-		<script type="text/javascript" src="./Login.js"></script>
 
 		<title>Account</title>
 
@@ -23,7 +23,7 @@
 				</div>
 
         <div class = "nav-item">
-					<a class = "nav-link" href = "AccountInfo.html">Account Info</a>
+					<a class = "nav-link" href = "AccountInfo.html">Settings</a>
 				</div>
 
 			</ul>
@@ -90,38 +90,43 @@
 				<div class = "col-8">
 					<table class = "table">
 						<tr>
-							<th style = "font-family: Varela round, serif; font-size: 25px">First Name
-							<span id = "name"></span><input type = "text" class = "form-control" id = "firstName" placeholder = "First Name" disabled></th>
+							<th style = "font-family: Varela round, serif; font-size: 25px" id = "username">Username
+							<span id = "username"></span><input type = "text" class = "form-control" id = "username" placeholder = "Username" disabled></th>
+						</tr>
+						
+						<tr>
+							<th style = "font-family: Varela round, serif; font-size: 25px" id = "firstName">First Name
+							<span id = "firstName"></span><input type = "text" class = "form-control" id = "firstName" placeholder = "First Name" disabled></th>
 						</tr>
 
 						<tr>
-							<th style = "font-family: Varela round, serif; font-size: 25px">Last Name
-							<span id = "age"></span><input type = "text" class = "form-control" id = "lastName" placeholder = "Last Name" disabled></th>
+							<th style = "font-family: Varela round, serif; font-size: 25px" id = "lastName">Last Name
+							<span id = "lastName"></span><input type = "text" class = "form-control" id = "lastName" placeholder = "Last Name" disabled></th>
 						</tr>
 
 						<tr>
-							<th style = "font-family: Varela round, serif; font-size: 25px">Email
-							<span id = "email"></span><input type = "text" class = "form-control" id = "email" placeholder = "Email" disabled></th>
+							<th style = "font-family: Varela round, serif; font-size: 25px" id = "email">Email
+							<span id = "email"></span><input type = "text" class = "form-control" id = "email" placeholder = "Email"></th>
 						</tr>
 						
 						<tr>
-							<th style = "font-family: Varela round, serif; font-size: 25px">Phone Number
-							<span id = "email"></span><input type = "text" class = "form-control" id = "phoneNumber" placeholder = "Phone Number" disabled></th>
+							<th style = "font-family: Varela round, serif; font-size: 25px" id = "phoneNumber">Phone Number
+							<span id = "phoneNumber"></span><input type = "text" class = "form-control" id = "phoneNumber" placeholder = "Phone Number"></th>
 						</tr>
 						
 						<tr>
-							<th style = "font-family: Varela round, serif; font-size: 25px">Address
-							<span id = "email"></span><input type = "text" class = "form-control" id = "address" placeholder = "Address" disabled></th>
+							<th style = "font-family: Varela round, serif; font-size: 25px" id = "address">Address
+							<span id = "address"></span><input type = "text" class = "form-control" id = "address" placeholder = "Address"></th>
 						</tr>
 						
 						<tr>
-							<th style = "font-family: Varela round, serif; font-size: 25px">City, State
-							<span id = "email"></span><input type = "text" class = "form-control" id = "cityState" placeholder = "City, State" disabled></th>
+							<th style = "font-family: Varela round, serif; font-size: 25px" id = "cityState">City, State
+							<span id = "cityState"></span><input type = "text" class = "form-control" id = "cityState" placeholder = "City, State"></th>
 						</tr>
 						
 						<tr>
-							<th style = "font-family: Varela round, serif; font-size: 25px">Zip Code
-							<span id = "email"></span><input type = "text" class = "form-control" id = "zipCode" placeholder = "Zip Code" disabled></th>
+							<th style = "font-family: Varela round, serif; font-size: 25px" id = "zipCode">Zip Code
+							<span id = "zipCode"></span><input type = "text" class = "form-control" id = "zipCode" placeholder = "Zip Code"></th>
 						</tr>
 
 					</table>
@@ -129,20 +134,47 @@
 
 				<div class = "table">
 					<div class = "col-sm-5">
-						<button type = "button" style = "font-size: 17px" class = "btn btn-primary" onclick = "changeInfo()">Edit Info</button>
+						<button type = "button" onclick = "editInfo()" style = "font-size: 17px" class = "btn btn-primary">Edit Info</button>
 					</div>
 				</div>
 
 				<div class = "table">
 					<div class = "col-sm-5">
-						<button type = "button" style = "font-size: 17px" class = "btn btn-success" onclick = "saveInfo()">Save Changes</button>
+						<button type = "button" onclick = "saveInfo()" style = "font-size: 17px" class = "btn btn-success">Save Changes</button>
 					</div>
 				</div>
 
 			</div>
 		</div>
-
-
+		
+		<script type = "text/javascript">
+			
+			function editInfo()
+			{
+				document.getElementById("username").disabled = false;
+				document.getElementById("firstName").disabled = false;
+				document.getElementById("lastName").disabled = false;
+				document.getElementById("email").disabled = false;
+				document.getElementById("phoneNumber").disabled = false;
+				document.getElementById("address").disabled = false;
+				document.getElementById("cityState").disabled = false;
+				document.getElementById("zipCode").disabled = false;
+			}
+			
+			function saveInfo()
+			{
+				document.getElementById("username").disabled = true;
+				document.getElementById("firstName").disabled = true;
+				document.getElementById("lastName").disabled = true;
+				document.getElementById("email").disabled = true;
+				document.getElementById("phoneNumber").disabled = true;
+				document.getElementById("address").disabled = true;
+				document.getElementById("cityState").disabled = true;
+				document.getElementById("zipCode").disabled = true;
+			}
+		
+		</script>	
+	
 	</body>
 
 </html>
