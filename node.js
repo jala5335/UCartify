@@ -90,7 +90,7 @@ var con = mysql.createConnection({
     email = req.body.username;
     password = req.body.password
     console.log(email, password)
-    var check_database = "SELECT * FROM users WHERE username = '" + email + "' AND password = '" + password +"'";
+    var check_database = "SELECT * FROM users WHERE username = '" + email + "' AND password = '" + password +"' LIMIT 1";
     con.query(check_database, async function (err, result) {
       if (err) throw err;
     });
@@ -100,7 +100,7 @@ var con = mysql.createConnection({
   });
 
  //Retrieve user info
-  var display_users_sql = "SELECT username FROM users WHERE user_id = '1'";
+  var display_users_sql = "SELECT username FROM users WHERE user_id = '1' LIMIT 1";
   con.query(display_users_sql, function (err, result, fields) {
     if (err) throw err;
     app.put('/SignUp.html', function (req, res) {
@@ -124,8 +124,8 @@ app.get('/login', function (req, res){
 });
 
 app.get('/accountinfo', function (req, res){
-  var user = "SELECT username FROM users WHERE username = " + username;
-  var pass = "SELECT username "
+  var user = "SELECT username FROM users WHERE username = '" + username + "' LIMIT 1";
+  //var pass = "SELECT username "
 });
 
 app.listen(8080, () => console.log("App listening on port http://localhost:8080"))
