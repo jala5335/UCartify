@@ -1,14 +1,13 @@
 <!doctype html>
 <html lang="en">
   <head>
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 		<link rel="stylesheet" type="text/css" href="Login.css">
 		<script type="text/javascript" src="./Login.js"></script>
-
-		<title>Home</title>
+		<script type="text/javascript" src="./homepagepage.js"></script>
+		<title>Homepage</title>
 
 		<nav class = "navbar navbar-expand-sm bg-dark">
 
@@ -26,14 +25,6 @@
 
 			</ul>
 
-      <ul class="nav navbar-nav ml-auto"> <!-- Right Side navbar -->
-
-				<div class = "nav-item">
-        	<a class = "nav-link" href="#myLoginModal" data-toggle="modal" onclick="openModal()">Signout</a>
-				</div>
-
-      </ul>
-
 		</nav>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -42,10 +33,147 @@
     	body{
     		background-color: #cfb97d;
     	}
+    	/* The Modal (background) */
+		.modal {
+		  display: none; /* Hidden by default */
+		  position: fixed; /* Stay in place */
+		  z-index: 1; /* Sit on top */
+		  padding-top: 100px; /* Location of the box */
+		  left: 0;
+		  top: 0;
+		  width: 100%; /* Full width */
+		  height: 100%; /* Full height */
+		  overflow: auto; /* Enable scroll if needed */
+		  background-color: rgb(0,0,0); /* Fallback color */
+		  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		}
+
+		/* Modal Content */
+		.modal-content {
+		  background-color: #fefefe;
+		  margin: auto;
+		  padding: 20px;
+		  border: 1px solid #888;
+		  width: 80%;
+		}
+
+		/* The Close Button */
+		.close {
+		  color: #aaaaaa;
+		  float: right;
+		  font-size: 28px;
+		  font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+		  color: #000;
+		  text-decoration: none;
+		  cursor: pointer;
+		}
+    	.button {
+		  background-color: black;
+		  border: none;
+		  color: #cfb97d;
+		  padding: 25px 60px;
+		  text-align: center;
+		  text-decoration: none;
+		  position: absolute;
+		  top: 30%;
+		  left: 50%;
+		  transform: translate(-50%, -50%);
+		  -ms-transform: translate(-50%, -50%);
+		  font-size: 16px;
+		  transition-duration: 0.4s;
+		}
+		.button:hover {
+		  background-color: #cfb97d; /* Green */
+		  color: black;
+		}
+		.opentxt{
+		  font-size:48px;
+		  text-align:center;
+		  top: 35%;
+		  left: 50%;
+		}
     </style>
   </head>
   <body>
+        <div class="opentxt">
+        	My UCart
+    	</div>
+    	<button class="button" id="button">Add a Item</button>
+		<div id="myModal" class="modal">
 
-  	
+		  <!-- Modal content -->
+		  <div class="modal-content">
+		    <span class="close">&times;</span>
+		    <div class="container">
+		      	<form>
+		      	<h1>Add Item To UCart</h1>
+				  <div class="form-group">
+				    <label for="ilink">Link</label>
+				    <input type="text" class="form-control" id="ilink" aria-describedby="ilink" placeholder="www.amazon.com/---, etc">
+				  </div>
+				  <div class="form-group">
+				    <label for="iname">Product Name</label>
+				    <input type="text" class="form-control" id="iname"></input>
+				  </div>
+				  <div class="row">
+				  	<div class="col">
+				  		<div class="form-group">
+						    <label for="uploadcontrol">Upload Local Image</label>
+						    <input type="file" class="form-control-file" id="uploadcontrol">
+						</div>
+				  	</div>
+				  	<div class="col">
+				  		<label for="exampleFormControlSelect1">Quantity Wanted</label>
+					    <select class="form-control" id="exampleFormControlSelect1">
+					      <option>1</option>
+					      <option>2</option>
+					      <option>3</option>
+					      <option>4</option>
+					      <option>5</option>
+					      <option>6+</option>
+					    </select>
+				  	</div>
+				  </div>
+				  <div class="form-group">
+				    <label for="iprice">Price</label>
+				    <input type="text" class="form-control" id="iprice" aria-describedby="interesthelp" placeholder="$">
+				  </div>
+				  <p>Confirm Information Then Check Box</p>
+				  <input type="checkbox" id="confirm" name="confirm" value="select">
+				  <label for="confirm">All Correct</label><br>
+				  <button type="submit" onclick="addCard('myModal')">Submit</button>
+				</form>
+			</div> 
+		<script>
+		// Get the modal
+		var modal = document.getElementById("myModal");
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("button");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks the button, open the modal 
+		btn.onclick = function() {
+		  modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		  modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		  if (event.target == modal) {
+		    modal.style.display = "none";
+		  }
+		}
+		</script>  	
   </body>
 </html>
