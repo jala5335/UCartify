@@ -1,11 +1,14 @@
-function addCard(id){
-  var id_card = document.getElementById(id);
-  var diver = document.createElement("div");
-  diver.className = "card";
-  diver.id = "diver";
-  diver.innerHTML = "<div class=\"card\" id=\"diver\"><button class=\"btn btn-warning\" onclick=\"deleteCard('divver')\"> - </button></div><img class=\"card-img-top\" scr=\"diver.\"><div class =\"card-body\"></div>";
-  id_card.appendTo('#diver');
+var child_id = 0;
+
+function addCard(divID, link, name, img, quant, price)
+{
+  var unique_id = divID+child_id;
+  var product = $('<div class="card" id = "'+unique_id+'"> <img   src="t"  height="300px" width="350px"><li class="list_group-item">Tweet</li><li class="list-group-item">Sample Tweet goes here!</li><button type="button" class="btn btn-danger" onclick="deleteCard('+unique_id+')">Remove</button>');
+  //var tweet = $('<p> hello </p>');
+  product.appendTo('#'+divID);
+  child_id++;
 }
-function deleteCard(toDelete){
-  document.getElementById(toDelete).remove();
+
+function deleteCard(cardId){
+  cardId.remove();
 }

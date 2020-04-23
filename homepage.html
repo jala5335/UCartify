@@ -94,15 +94,23 @@
 		  font-size:48px;
 		  text-align:center;
 		  top: 35%;
-		  left: 50%;
+		  left: 25%;
+		}
+		.card{
+			text-align:center;
+			top: 75%;
+		 	left: 25%;
+		 	padding: 250px 250px;
 		}
     </style>
   </head>
   <body>
-        <div class="opentxt">
-        	My UCart
-    	</div>
-    	<button class="button" id="button">Add a Item</button>
+        <div class="opentxt">UrCart</div>
+    	<div class="container">
+	    	<div class="card" style="width: 24rem;" id="cartlist">
+					<button class="button" id="button">Add a Item</button>
+			</div>
+		</div>
 		<div id="myModal" class="modal">
 
 		  <!-- Modal content -->
@@ -127,8 +135,8 @@
 						</div>
 				  	</div>
 				  	<div class="col">
-				  		<label for="exampleFormControlSelect1">Quantity Wanted</label>
-					    <select class="form-control" id="exampleFormControlSelect1">
+				  		<label for="iquant">Quantity Wanted</label>
+					    <select class="form-control" id="iquant">
 					      <option>1</option>
 					      <option>2</option>
 					      <option>3</option>
@@ -145,9 +153,10 @@
 				  <p>Confirm Information Then Check Box</p>
 				  <input type="checkbox" id="confirm" name="confirm" value="select">
 				  <label for="confirm">All Correct</label><br>
-				  <button type="submit" onclick="addCard('myModal')">Submit</button>
+				  <button type="submit" onclick="addCard('cartlist', 'ilink', 'iname', 'uploadcontrol', 'iquant', 'iprice')">Submit</button>
 				</form>
 			</div> 
+		</div>
 		<script>
 		// Get the modal
 		var modal = document.getElementById("myModal");
