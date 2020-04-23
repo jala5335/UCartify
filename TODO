@@ -1,17 +1,20 @@
-remove the first name, last name etc from account info since its not collected in the sign up page
+(Please do below on another branch so it doesn't break as the only function we currently have 
+working is the sign up/login and population of account info)
 
-replicate the process of adding users to the database and retrieving it for products
+- remove the first name, last name etc from account info since its not collected in the sign up page
 
-display said products on account info page, similar to account details
+- replicate the process of adding users to the database and retrieving it for products
 
-fix images not displaying
+- display said products on account info page, similar to account details
 
-check login credentials being in the database
+- fix images not displaying
 
-make sure style/css errors are fixed
+- check login credentials being in the database
 
-fix non-unique ids
+- make sure style/css errors are fixed
 
-remove login from accountinfo page/replace with logout (just redirect to the main screen)
+- fix non-unique ids
 
-remove settings page
+- remove login from accountinfo page/replace with logout (just redirect to the main screen)
+
+- remove settings page
