@@ -8,59 +8,7 @@
 		<link rel="stylesheet" type="text/css" href="Login.css">
 		<script type="text/javascript" src="./Login.js"></script>
 
-		<title>Account</title>
-
-		<nav class = "navbar navbar-expand-sm bg-dark">
-
-			<a class = "navbar-brand" href = "Ucartify.html"></a>
-
-			<ul class = "navbar-nav">
-
-				<div class = "nav-item">
-					<a class = "nav-link" href = "Ucartify.html">Home</a>
-				</div>
-
-        <div class = "nav-item">
-					<a class = "nav-link" href = "AccountInfo.html">Settings</a>
-				</div>
-
-			</ul>
-
-      <ul class="nav navbar-nav ml-auto"> <!-- Right Side navbar -->
-
-				<div class = "nav-item">
-        	<a class = "nav-link" href="#myLoginModal" data-toggle="modal" onclick="openModal()">Login</a>
-				</div>
-
-      </ul>
-
-		</nav>
-
-		<!-- Login Modal (Nate) -->
-		<div id="myLoginModal" class="modal fade">
-			<div class="modal-dialog modal-login">
-				<div class="modal-content">
-					<div class="modal-header">
-						<div class="avatar">
-							<img src="https://www.tutorialrepublic.com/examples/images/avatar.png" alt="Avatar">
-						</div>
-						<h4 class="modal-title">Login to UCartify</h4>
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					</div>
-					<div class="form-group">
-						<input id="username" type="text" class="form-control" name="Username" placeholder="Username"
-							required="required">
-					</div>
-					<div class="form-group">
-						<input id="password" type="password" class="form-control" name="Password" placeholder="Password"
-							required="required">
-					</div>
-					<div class="form-group">
-						<button id="my_submit_button" class="btn btn-primary btn-block login-btn" onClick="onClickFunction()">Login</button>
-					</div>
-				</div>
-			</div>
-		</div>
+		<title>Welcome</title>
 
   	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -118,7 +66,7 @@
 		  text-align: center;
 		  text-decoration: none;
 		  position: absolute;
-		  top: 55%;
+		  top: 50%;
 		  left: 50%;
 		  transform: translate(-50%, -50%);
 		  -ms-transform: translate(-50%, -50%);
@@ -137,7 +85,7 @@
 		  text-align: center;
 		  text-decoration: none;
 		  position: absolute;
-		  top: 75%;
+		  top: 70%;
 		  left: 50%;
 		  transform: translate(-50%, -50%);
 		  -ms-transform: translate(-50%, -50%);
@@ -170,8 +118,33 @@
   		</div>
   	</div>
   	<div class="homebox">
- 		<button class="button" onclick="document.location = 'Login.html'">Login</button>
+ 		<button class="button" href="#myLoginModal" data-toggle="modal" onclick="openModal()">Login</button>
  		<button class="button2" onclick="document.location = 'SignUp.html'">Sign Up</button>
+ 		<!-- Login Modal (Nate) -->
+		<div id="myLoginModal" class="modal fade">
+			<div class="modal-dialog modal-login">
+				<div class="modal-content">
+					<div class="modal-header">
+						<div class="avatar">
+							<img src="https://www.tutorialrepublic.com/examples/images/avatar.png" alt="Avatar">
+						</div>
+						<h4 class="modal-title">Login to UCartify</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					</div>
+					<div class="form-group">
+						<input id="username" type="text" class="form-control" name="Username" placeholder="Username"
+							required="required">
+					</div>
+					<div class="form-group">
+						<input id="password" type="password" class="form-control" name="Password" placeholder="Password"
+							required="required">
+					</div>
+					<div class="form-group">
+						<button id="my_submit_button" class="btn btn-primary btn-block login-btn" onClick="onClickFunction()">Login</button>
+					</div>
+				</div>
+			</div>
+		</div>
   	</div>
 
   </body>
