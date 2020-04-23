@@ -65,13 +65,113 @@
   	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
+    <style type="text/css">
+    	body{
+    		background-image: url(space.gif);
+    	}
+    </style>
   </head>
   <body>
+  	<style type="text/css">
+  		.homebox{
+			background-color: black;
+			color: white;
+			text-align: center;
+			width: 400px;
+			height: 400px;
+			margin: 0 auto;
+		}
+		.hbox {
+		  position: relative;
+		  width: 100%;
+		  max-width: 400px;
+		}
 
-    <div class="jumbotron jumbotron-fluid">
+		.hbox img {
+		  width: 100%;
+		  height: auto;
+		}
+		.hbox .btn {
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  transform: translate(-50%, -50%);
+		  -ms-transform: translate(-50%, -50%);
+		  background-color: #cfb97d;
+		  color: black;
+		  font-size: 16px;
+		  padding: 16px 30px;
+		  border: none;
+		  cursor: pointer;
+		  border-radius: 5px;
+		  text-align: center;
+		}
+		.hbox .btn:hover {
+		  background-color: white;
+		  color: black;
+		}
+		.button {
+		  background-color: #cfb97d;
+		  border: none;
+		  color: black;
+		  padding: 25px 60px;
+		  text-align: center;
+		  text-decoration: none;
+		  position: absolute;
+		  top: 55%;
+		  left: 50%;
+		  transform: translate(-50%, -50%);
+		  -ms-transform: translate(-50%, -50%);
+		  font-size: 16px;
+		  transition-duration: 0.4s;
+		}
+		.button:hover {
+		  background-color: white; /* Green */
+		  color: #cfb97d;
+		}
+		.button2 {
+		  background-color: #cfb97d;
+		  border: none;
+		  color: black;
+		  padding: 25px 48px;
+		  text-align: center;
+		  text-decoration: none;
+		  position: absolute;
+		  top: 75%;
+		  left: 50%;
+		  transform: translate(-50%, -50%);
+		  -ms-transform: translate(-50%, -50%);
+		  font-size: 16px;
+		  transition-duration: 0.4s;
+		}
+		.button2:hover {
+		  background-color: white; /* Green */
+		  color: #cfb97d;
+		}
+		.static {
+		  position:absolute;
+		  background: white;
+		}
+
+		.static:hover {
+		  opacity:0;
+		}
+		.jumbotron{
+			background-color: #cfb97d;
+		}
+		.container{
+			background-color: #cfb97d;
+		}
+  	</style>
+    <div class="jumbotron">
+
   		<div class="container">
   			<h1 class="text-center">Welcome to UCartify!</h1>
   		</div>
+  	</div>
+  	<div class="homebox">
+ 		<button class="button" onclick="document.location = 'Login.html'">Login</button>
+ 		<button class="button2" onclick="document.location = 'SignUp.html'">Sign Up</button>
   	</div>
 
   </body>
