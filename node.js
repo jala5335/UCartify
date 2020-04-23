@@ -3,6 +3,7 @@ const url = require('url');
 const fs = require('fs');
 const mysql = require('mysql');
 const express = require('express');
+const bodyParser = require('body-parser');
 
 var con = mysql.createConnection({  
   host: "localhost",
@@ -41,22 +42,15 @@ con.connect(function(err){
   //Insert user into users table
   //var user_sql = "INSERT INTO users (username, password) VALUES ('user1','user1')";
   //con.query(user_sql, function (err, result) {
-  //  if (err) throw err;
-  //  console.log("User added - username: user1, password: user1!");
+    //if (err) throw err;
+    //console.log("User added - username: user1, password: user1!");
   //});
-
-  //Display users 
-  var display_users_sql = "SELECT * FROM users";
-  con.query(display_users_sql, function (err, result) {
-    if (err) throw err;
-    console.log(result);
-  });
 
   //Insert product into products table
   //var product_sql = "insert into products (name, url, price, user_id) VALUES ('shoe','url',80,1)";
   //con.query(product_sql, function (err, result) {
-  //  if (err) throw err;
-  //  console.log("Product added");
+    //if (err) throw err;
+    //console.log("Product added");
   //});
 
   //Display products 
@@ -65,17 +59,40 @@ con.connect(function(err){
     if (err) throw err;
     console.log(result);
   });
-
 });
 
+const username = "error";
+const password = "error";
+
+//Add users in signup
 const app = express();
 app.use(express.urlencoded());
-app.post('/accountinfo.html', (req,res)=>{
-  const email = req.body.email;
-  const password = req.body.password;
-  console.log(email);
+app.use(bodyParser.urlencoded({extended:true}));
+app.post('/signup.html', (req,res)=>{
+  res.sendFile(__dirname + "/" + "signup.html");
+});
+app.post('/accountinfo.html', function (req,res){
+  username = req.query.email;
+  password = req.query.password;
   res.end();
 });
+
+con.query("USE ucartifydatabase", function (err, result){
+  if (err) throw err;
+  console.log ("Database used!");
+});
+var insert_new_user_sql = "INSERT INTO users (username, password) VALUES ('" + username + "', '" + password + "')";
+con.query(insert_new_user_sql, function (err, result) {
+  if (err) throw err;
+  console.log("New user added");
+});
+
+ //Display users 
+ var display_users_sql = "SELECT * FROM users";
+ con.query(display_users_sql, function (err, result) {
+   if (err) throw err;
+   console.log(result);
+ });
 
 //Create server
 http.createServer(function (req, res) {
