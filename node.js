@@ -4,16 +4,27 @@ const fs = require('fs');
 const mysql = require('mysql');
 const express = require('express');
 const bodyParser = require('body-parser');
+//const store = require('./store');
 
+//Connect to mysql
 var con = mysql.createConnection({  
   host: "localhost",
   user: "root",
   password: "12345678"
 });
 
-con.connect(function(err){
-  if (err) throw err;
-  console.log("Connected!");
+//Begin connection
+  con.connect(function(err){
+    if (err) throw err;
+    console.log("Connected!");
+
+  const app = express();
+  app.use(bodyParser.json())
+  app.use(bodyParser.urlencoded({
+    extended: true
+  }));
+
+  app.use(express.urlencoded())
 
   //Create database
   con.query("CREATE DATABASE IF NOT EXISTS ucartifydatabase", function (err, result){
@@ -59,54 +70,64 @@ con.connect(function(err){
     if (err) throw err;
     console.log(result);
   });
-});
 
-const username = "error";
-const password = "error";
+  var username = 'error';
+  var password = 'error';
 
-//Add users in signup
-const app = express();
-app.use(express.urlencoded());
-app.use(bodyParser.urlencoded({extended:true}));
-app.post('/signup.html', (req,res)=>{
-  res.sendFile(__dirname + "/" + "signup.html");
-});
-app.post('/accountinfo.html', function (req,res){
-  username = req.query.email;
-  password = req.query.password;
-  res.end();
-});
-
-con.query("USE ucartifydatabase", function (err, result){
-  if (err) throw err;
-  console.log ("Database used!");
-});
-var insert_new_user_sql = "INSERT INTO users (username, password) VALUES ('" + username + "', '" + password + "')";
-con.query(insert_new_user_sql, function (err, result) {
-  if (err) throw err;
-  console.log("New user added");
-});
-
- //Display users 
- var display_users_sql = "SELECT * FROM users";
- con.query(display_users_sql, function (err, result) {
-   if (err) throw err;
-   console.log(result);
- });
-
-//Create server
-http.createServer(function (req, res) {
-  var q = url.parse(req.url, true);
-  var filename = "." + q.pathname;
-
-  fs.readFile(filename, function(err, data){
-    if (err){
-      res.writeHead(404, {'Content-Type': 'text/html'});
-      return res.end("404 NOT FOUND");
-    }
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(data);
-    return res.end();
+  app.post('/signup', function (req, res){
+    email = req.body.email;
+    password = req.body.password
+    console.log(email, password)
+    var insert_new_user_sql = "INSERT INTO users (username, password) VALUES ('" + email + "', '" + password + "')";
+      con.query(insert_new_user_sql, function (err, result) {
+      if (err) throw err;
+      console.log("New user added!");
+    });
+    res.redirect('/')
   });
-  
-}).listen(8080);
+
+  app.post('/login', function (req, res){
+    email = req.body.username;
+    password = req.body.password
+    console.log(email, password)
+    var check_database = "SELECT * FROM users WHERE username = '" + email + "' AND password = '" + password +"'";
+    con.query(check_database, async function (err, result) {
+      if (err) throw err;
+    });
+    //TODO: Check if they are in the DB
+    var string = encodeURIComponent(email);
+    res.redirect('/accountinfo?valid=' + string);
+  });
+
+ //Retrieve user info
+  var display_users_sql = "SELECT username FROM users WHERE user_id = '1'";
+  con.query(display_users_sql, function (err, result, fields) {
+    if (err) throw err;
+    app.put('/SignUp.html', function (req, res) {
+      res.send({success: true, message: result})
+    });
+ });
+//Add users in signup
+
+
+app.get('/signup', function (req, res){
+  res.sendFile(__dirname + '/SignUp.html');
+});
+app.get('/', function (req, res){
+  res.sendFile(__dirname + '/UCartify.html');
+});
+app.get('/accountinfo', function (req, res){
+  res.sendFile(__dirname + '/accountinfo.html')
+});
+app.get('/login', function (req, res){
+  res.sendFile(__dirname + '/AccountInfo.html');
+});
+
+app.get('/accountinfo', function (req, res){
+  var user = "SELECT username FROM users WHERE username = " + username;
+  var pass = "SELECT username "
+});
+
+app.listen(8080, () => console.log("App listening on port http://localhost:8080"))
+
+});

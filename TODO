@@ -1,0 +1,17 @@
+remove the first name, last name etc from account info since its not collected in the sign up page
+
+replicate the process of adding users to the database and retrieving it for products
+
+display said products on account info page, similar to account details
+
+fix images not displaying
+
+check login credentials being in the database
+
+make sure style/css errors are fixed
+
+fix non-unique ids
+
+remove login from accountinfo page/replace with logout (just redirect to the main screen)
+
+remove settings page
