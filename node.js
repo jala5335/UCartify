@@ -1,7 +1,8 @@
-var http = require('http');
-var url = require('url');
-var fs = require('fs');
-var mysql = require('mysql');
+const http = require('http');
+const url = require('url');
+const fs = require('fs');
+const mysql = require('mysql');
+const express = require('express');
 
 var con = mysql.createConnection({  
   host: "localhost",
@@ -65,6 +66,15 @@ con.connect(function(err){
     console.log(result);
   });
 
+});
+
+const app = express();
+app.use(express.urlencoded());
+app.post('/accountinfo.html', (req,res)=>{
+  const email = req.body.email;
+  const password = req.body.password;
+  console.log(email);
+  res.end();
 });
 
 //Create server
