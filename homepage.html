@@ -11,16 +11,16 @@
 
 		<nav class = "navbar navbar-expand-sm bg-dark">
 
-			<a class = "navbar-brand" href = "Ucartify.html"></a>
+			<a class = "navbar-brand" href = "/ucartify"></a>
 
 			<ul class = "navbar-nav">
 
 				<div class = "nav-item">
-					<a class = "nav-link" href = "Ucartify.html">Home</a>
+					<a class = "nav-link" href = "/ucartify">Home</a>
 				</div>
 
         <div class = "nav-item">
-					<a class = "nav-link" href = "AccountInfo.html">Settings</a>
+					<a class = "nav-link" href = "/accountinfo">Settings</a>
 		</div>
 
 			</ul>
@@ -110,6 +110,8 @@
 					<button class="button" id="buttona">Add an Item</button>
 			</div>
 		</div>
+		<form action="/homepage" method="post">
+
 		<div id="myModal" class="modal">
 
 		  <!-- Modal content -->
@@ -120,11 +122,11 @@
 		      	<h1>Add Item To UrCart</h1>
 				  <div class="form-group">
 				    <label for="ilink">Link</label>
-				    <input type="text" class="form-control" id="ilink" aria-describedby="ilink" placeholder="www.amazon.com/---, etc">
+				    <input type="text" class="form-control" name="url" id="ilink" aria-describedby="ilink" placeholder="www.amazon.com/---, etc">
 				  </div>
 				  <div class="form-group">
 				    <label for="iname">Product Name</label>
-				    <input type="text" class="form-control" id="iname"></input>
+				    <input type="text" class="form-control" name="productname" id="iname"></input>
 				  </div>
 				  <div class="row">
 				  	<div class="col">
@@ -147,7 +149,7 @@
 				  </div>
 				  <div class="form-group">
 				    <label for="iprice">Price</label>
-				    <input type="text" class="form-control" id="iprice" aria-describedby="interesthelp" placeholder="$">
+				    <input type="text" class="form-control" name = "price" id="iprice" aria-describedby="interesthelp" placeholder="$">
 				  </div>
 				  <p>Confirm Information Then Check Box</p>
 				  <input type="checkbox" id="confirm" name="confirm" value="select">
@@ -156,6 +158,7 @@
 				</form>
 			</div> 
 		</div>
+		</form>
 		<script>
 		// Get the modal
 		var modal = document.getElementById("myModal");
