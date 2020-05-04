@@ -11,22 +11,18 @@
 
 		<nav class = "navbar navbar-expand-sm bg-dark">
 
-			<a class = "navbar-brand" href = "/ucartify"></a>
+			<a class = "navbar-brand" href = "Ucartify.html"></a>
 
 			<ul class = "navbar-nav">
 
 				<div class = "nav-item">
-<<<<<<< HEAD
-					<a class = "nav-link" href = "/ucartify">Home</a>
-=======
 					<a href="Ucartify.html">
 						<img src="LOGO1.png" height="25px" width="25px">
 					</a>
->>>>>>> 032aee110463e022d99807b51e571e71dfcabaab
 				</div>
 		<br>
         <div class = "nav-item">
-					<a class = "nav-link" href = "/accountinfo">Settings</a>
+					<a class = "nav-link" href = "AccountInfo.html">Settings</a>
 		</div>
 
 			</ul>
@@ -117,16 +113,7 @@
 					<div class="container" id="addhere"></div>
 			</div>
 		</div>
-<<<<<<< HEAD
-		<form action="/homepage" method="post">
-=======
 		<br>
-		<div class="card" style="width: 24rem;" height=60px>
-			<a href="https://www.amazon.com/adidas-Performance-Womens-Cloudfoam-Running/dp/B071LF9R6G/ref=sr_1_2?crid=3RJKOXFJ3U3AT&dchild=1&keywords=shoes+for+women&qid=1587668514&sprefix=shoes%2Caps%2C182&sr=8-2"><p>Womens Shoes</p></a>
-			<p></p>
-		</div>
->>>>>>> 032aee110463e022d99807b51e571e71dfcabaab
-
 		<div id="myModal" class="modal">
 
 		  <!-- Modal content -->
@@ -137,11 +124,11 @@
 		      	<h1>Add Item To UrCart</h1>
 				  <div class="form-group">
 				    <label for="ilink">Link</label>
-				    <input type="text" class="form-control" name="url" id="ilink" aria-describedby="ilink" placeholder="www.amazon.com/---, etc">
+				    <input type="text" class="form-control" id="ilink" aria-describedby="ilink" placeholder="www.amazon.com/---, etc">
 				  </div>
 				  <div class="form-group">
 				    <label for="iname">Product Name</label>
-				    <input type="text" class="form-control" name="productname" id="iname"></input>
+				    <input type="text" class="form-control" id="iname"></input>
 				  </div>
 				  <div class="row">
 				  	<div class="col">
@@ -164,16 +151,12 @@
 				  </div>
 				  <div class="form-group">
 				    <label for="iprice">Price</label>
-				    <input type="text" class="form-control" name = "price" id="iprice" aria-describedby="interesthelp" placeholder="$">
+				    <input type="text" class="form-control" id="iprice" aria-describedby="interesthelp" placeholder="$">
 				  </div>
-				  <p>Confirm Information Then Check Box</p>
-				  <input type="checkbox" id="confirm" name="confirm" value="select">
-				  <label for="confirm">All Correct</label><br>
 				  <button type="Submit" onclick="printconsole('ilink', 'iname', 'iquant', 'iprice', 'addhere')">Submit</button>
 				</form>
 			</div> 
 		</div>
-		</form>
 		<script>
 		// Get the modal
 		var modal = document.getElementById("myModal");
@@ -215,9 +198,7 @@
 			text += "product:" + inamen + "<br>";
 			text += "quantity:" + iquantn + "<br>";
 			text += "price:" + ipricen + "<br>";
-			document.getElementById("add").innerHTML = text;
 		}
-
 		</script>  	
   </body>
 </html>
