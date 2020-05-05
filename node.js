@@ -17,8 +17,8 @@ var con = mysql.createConnection({
   con.connect(function(err){
     if (err) throw err;
     console.log("Connected!");
-
   const app = express();
+
   app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({
     extended: true
@@ -73,6 +73,9 @@ var con = mysql.createConnection({
 
   var username = 'error';
   var password = 'error';
+  var url = 'error';
+  var productname = 'error';
+  var price = 0;
 
   app.post('/signup', function (req, res){
     email = req.body.email;
@@ -84,6 +87,19 @@ var con = mysql.createConnection({
       console.log("New user added!");
     });
     res.redirect('/')
+  });
+
+  app.post('/homepage', function (req, res){
+    url = req.body.url;
+    productname = req.body.productname;
+    price = req.body.price;
+    //TODO change to userID
+    var insert_new_product_sql = "INSERT INTO products (name, url, price, user_id) VALUES ('" + productname + "', '" + url + "', '" + price + "', '" + "2" + "')";
+      con.query(insert_new_product_sql, function (err, result) {
+      if (err) throw err;
+      console.log("New product added!");
+    });
+    res.redirect('/homepage')
   });
 
   app.post('/login', function (req, res){
@@ -107,27 +123,29 @@ var con = mysql.createConnection({
       res.send({success: true, message: result})
     });
  });
-//Add users in signup
 
+  //Add users in signup
+  app.get('/signup', function (req, res){
+    res.sendFile(__dirname + '/SignUp.html');
+  });
+  app.get('/', function (req, res){
+    res.sendFile(__dirname + '/UCartify.html');
+  });
+  app.get('/accountinfo', function (req, res){
+    res.sendFile(__dirname + '/accountinfo.html')
+  });
+  app.get('/login', function (req, res){
+    res.sendFile(__dirname + '/AccountInfo.html');
+  });
+  app.get('/accountinfo', function (req, res){
+    var user = "SELECT username FROM users WHERE username = '" + username + "' LIMIT 1";
+    //var pass = "SELECT username "
+  });
+  app.get('/homepage', function (req, res){
+    res.sendFile(__dirname + '/homepage.html');
+  });
+  app.get('/ucartify', function (req, res){
+    res.sendFile(__dirname + '/Ucartify.html');
+  });
 
-app.get('/signup', function (req, res){
-  res.sendFile(__dirname + '/SignUp.html');
-});
-app.get('/', function (req, res){
-  res.sendFile(__dirname + '/UCartify.html');
-});
-app.get('/accountinfo', function (req, res){
-  res.sendFile(__dirname + '/accountinfo.html')
-});
-app.get('/login', function (req, res){
-  res.sendFile(__dirname + '/AccountInfo.html');
-});
-
-app.get('/accountinfo', function (req, res){
-  var user = "SELECT username FROM users WHERE username = '" + username + "' LIMIT 1";
-  //var pass = "SELECT username "
-});
-
-app.listen(8080, () => console.log("App listening on port http://localhost:8080"))
-
-});
+  app.listen(8080, () => console.log("App listening on port http://localhost:8080"))
