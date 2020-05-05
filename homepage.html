@@ -80,7 +80,7 @@
 		  text-align: center;
 		  text-decoration: none;
 		  position: absolute;
-		  top: 20%;
+		  top: 30%;
 		  left: 50%;
 		  transform: translate(-50%, -50%);
 		  -ms-transform: translate(-50%, -50%);
@@ -97,21 +97,33 @@
 		  top: 35%;
 		  left: 25%;
 		}
-		.card{
-			text-align:center;
-			top: 75%;
-		 	left: 27.5%;
-		 	padding: 250px 250px;
+		.shopping{
+		  padding: 25px 60px;
+		  text-align: center;
+		  text-decoration: none;
+		  position: absolute;
+		  top: 60%;
+		  left: 49%;
+		  transform: translate(-50%, -50%);
+		  -ms-transform: translate(-50%, -50%);
+		  font-size: 16px;
+		  transition-duration: 0.4s;
 		}
     </style>
   </head>
   <body>
         <div class="opentxt">UrCart</div>
     	<div class="container">
-	    	<div class="card" style="width: 24rem;" id="cartlist">
-					<button class="button" id="buttona">Add an Item</button>
-					<div class="container" id="addhere"></div>
-			</div>
+    		<button class="button" id="buttona">Add an Item</button>
+	    	<div class="shopping" style="width: 24rem; margin-top: 150px" id="cartlist">
+	    				<div class="card" style="width: 18rem;">
+						  <div class="card-body">
+						  	<img class="card-img-top" src="LOGO1.png" alt="Card image cap">
+						    <h5 class="card-title">Product Name</h5>
+						    <p class="card-text">Price: $</p>
+						    <a href="#" class="card-link">Product Webpage</a>
+						  </div>
+						</div>
 		</div>
 		<br>
 		<div id="myModal" class="modal">
@@ -120,7 +132,7 @@
 		  <div class="modal-content">
 		    <span class="close">&times;</span>
 		    <div class="container">
-		      	<form id="parseme">
+		      	<form id="parseme" method="post" onsubmit="return false;"> <!-- added post method -->
 		      	<h1>Add Item To UrCart</h1>
 				  <div class="form-group">
 				    <label for="ilink">Link</label>
@@ -133,8 +145,8 @@
 				  <div class="row">
 				  	<div class="col">
 				  		<div class="form-group">
-						    <label for="uploadcontrol">Upload Local Image</label>
-						    <input type="file" class="form-control-file" id="uploadcontrol">
+						    <label for="pimg">Upload Local Image</label>
+						    <input type="file" class="form-control-file" id="pimg">
 						</div>
 				  	</div>
 				  	<div class="col">
@@ -153,11 +165,11 @@
 				    <label for="iprice">Price</label>
 				    <input type="text" class="form-control" id="iprice" aria-describedby="interesthelp" placeholder="$">
 				  </div>
-				  <button type="Submit" onclick="printconsole('ilink', 'iname', 'iquant', 'iprice', 'addhere')">Submit</button>
+				  <button type="Submit" onclick="createListing();" id="submod" >Submit</button>
 				</form>
 			</div> 
 		</div>
-		<script>
+		<script type="text/javascript">
 		// Get the modal
 		var modal = document.getElementById("myModal");
 
@@ -167,10 +179,13 @@
 		// Get the <span> element that closes the modal
 		var span = document.getElementsByClassName("close")[0];
 
+		var subtn = document.getElementById("submod");
+
 		// When the user clicks the button, open the modal 
 		btn.onclick = function() {
 		  modal.style.display = "block";
 		}
+
 
 		// When the user clicks on <span> (x), close the modal
 		span.onclick = function() {
@@ -184,20 +199,17 @@
 		  }
 		}
 
-		function printconsole(ilink, iname, iquant, iprice, add){
+		function createListing(){
 			var ilinkn = document.getElementById("ilink").value;
 			var inamen = document.getElementById("iname").value;
 			var iquantn = document.getElementById("iquant").value;
 			var ipricen = document.getElementById("iprice").value;
-			console.log(ilinkn);
-			console.log(inamen);
-			console.log(iquantn);
-			console.log(ipricen);
-			var text = "";
-			text += "link:" + ilinkn + "<br>";
-			text += "product:" + inamen + "<br>";
-			text += "quantity:" + iquantn + "<br>";
-			text += "price:" + ipricen + "<br>";
+			var pimg = document.getElementById("pimg").value;
+			let myCard = document.createElement("div");
+			myCard.innerHTML += '<div class="card" style="width: 18rem;"><div class="card-body"><img class="card-img-top" src="'+ pimg.toString() +'" alt="Card image cap"><h5 class="card-title">"'+ inamen.toString() +'"</h5><p class="card-text">Price: $ "'+ parseInt(ipricen) +'"</p><a href="'+ ilinkn.toString() +'" class="card-link">Product Webpage</a></div></div>';
+			var cont = document.getElementById("cartlist"); 
+			cont.appendChild(myCard);
+			modal.style.display = "none";
 		}
 		</script>  	
   </body>

@@ -1,20 +1,20 @@
 var child_id = 0;
-const mysql = require('mysql');
-var con = mysql.createConnection({  
-  host: "localhost",
-  user: "root",
-  password: "12345678",
-  database: "ucartifydatabase"
-});
+//const mysql = require('mysql');
+// var con = mysql.createConnection({  
+//   host: "localhost",
+//   user: "root",
+//   password: "12345678",
+//   database: "ucartifydatabase"
+// });
 
 //Begin connection
-  con.connect(function(err){
-    if (err) throw err;
-    con.query("SELECT name, url, price, itemq FROM products", function(err,result,fields){
-    	if(err)throw err;
-    	console.log(result);
-    })
- })
+ //  con.connect(function(err){
+ //    if (err) throw err;
+ //    con.query("SELECT name, url, price, itemq FROM products", function(err,result,fields){
+ //    	if(err)throw err;
+ //    	console.log(result);
+ //    })
+ // })
 
 function printconsole(ilink, iname, iquant, iprice, add){
 		var ilinkn = document.getElementById("ilink").value;
@@ -61,8 +61,13 @@ function deleteCard(cardId){
   cardId.remove();
 }
 
-function createListing(){
-	document.getElementById("addhere").innerHTML = "<div class="container"> </div> "
-}
+// function createListing(ilink, iname, iquant, iprice, img){
+// 	var ilinkn = document.getElementById("ilink").value;
+// 	var inamen = document.getElementById("iname").value;
+// 	var iquantn = document.getElementById("iquant").value;
+// 	var ipricen = document.getElementById("iprice").value;
+// 	var pimg = document.getElementById("pimg").value;
+// 	document.getElementById("addhere").innerHTML += $('<div class="card" style="width: 18rem;"><div class="card-body"><img class="card-img-top" src='pimg' alt="Card image cap"><h5 class="card-title">'iname'</h5><p class="card-text">Price: $ 'ipricen'</p><a href='ilinkn' class="card-link">Product Webpage</a></div></div>');
+// }
 
 
