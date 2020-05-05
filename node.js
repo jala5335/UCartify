@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 //const store = require('./store');
 
 //Connect to mysql
-var con = mysql.createConnection({  
+var con = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "12345678"
@@ -36,7 +36,7 @@ var con = mysql.createConnection({
     console.log ("Database used!");
   });
 
-  //Create users table 
+  //Create users table
   var users_sql = "CREATE TABLE  IF NOT EXISTS users (user_id INT AUTO_INCREMENT PRIMARY KEY, username VARCHAR(45), password VARCHAR(45))";
   con.query(users_sql, function (err, result) {
     if (err) throw err;
@@ -64,7 +64,7 @@ var con = mysql.createConnection({
     //console.log("Product added");
   //});
 
-  //Display products 
+  //Display products
   var display_products_sql = "SELECT * FROM products";
   con.query(display_products_sql, function (err, result) {
     if (err) throw err;
@@ -73,9 +73,6 @@ var con = mysql.createConnection({
 
   var username = 'error';
   var password = 'error';
-  var url = 'error';
-  var productname = 'error';
-  var price = 0;
 
   app.post('/signup', function (req, res){
     email = req.body.email;
@@ -87,19 +84,6 @@ var con = mysql.createConnection({
       console.log("New user added!");
     });
     res.redirect('/')
-  });
-
-  app.post('/homepage', function (req, res){
-    url = req.body.url;
-    productname = req.body.productname;
-    price = req.body.price;
-    //TODO change to userID
-    var insert_new_product_sql = "INSERT INTO products (name, url, price, user_id) VALUES ('" + productname + "', '" + url + "', '" + price + "', '" + "2" + "')";
-      con.query(insert_new_product_sql, function (err, result) {
-      if (err) throw err;
-      console.log("New product added!");
-    });
-    res.redirect('/homepage')
   });
 
   app.post('/login', function (req, res){
@@ -142,12 +126,6 @@ app.get('/login', function (req, res){
 app.get('/accountinfo', function (req, res){
   var user = "SELECT username FROM users WHERE username = '" + username + "' LIMIT 1";
   //var pass = "SELECT username "
-});
-app.get('/homepage', function (req, res){
-  res.sendFile(__dirname + '/homepage.html');
-});
-app.get('/ucartify', function (req, res){
-  res.sendFile(__dirname + '/Ucartify.html');
 });
 
 app.listen(8080, () => console.log("App listening on port http://localhost:8080"))
