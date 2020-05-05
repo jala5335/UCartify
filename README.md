@@ -11,3 +11,5 @@ U(niversal)Cartify keeps a theme as well as it keeps track of your shopping list
 birthday lists, wedding gifts, Christmas wishes, their own personal cart, or more, UCartify will always be there to keep track 
 of your shopping needs. With pages dedicated solely to: a cart, personal information, registration, signing up, and an 
 unregistered view, the team has tried to keep it simple and efficient. 
+
+-To test code: start up a node server using "node.js", or simply directly access Ucartify.html or any of the other html pages. For the most part code is organized loosely by HTML file with corresponding JS/CSS files with "Node.js" being the overarching server file.
